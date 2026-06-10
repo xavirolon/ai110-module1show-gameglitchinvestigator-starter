@@ -8,15 +8,20 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - List at least two concrete bugs you noticed at the start  
   (for example: "the hints were backwards").
 
+- Game looked like a browser window with a bar to type guesses for a random number
+- Hints were backwards, inputting numbers higher than the secret number would result in hints showing "Go Higher", numbers lower than the number would show "Go Lower"
+- Pressing New Game did not reset our sequence, the secret number changed but the guesses from the last game stayed and I could not make any new guesses
+- Difficult did not match what it should be, for example, Normal gave a range to guess from 1 - 100 but Hard was 1 - 50. The question would be if that correctly reflects the diffculty chosen.
+
 **Bug Reproduction Log**
 
 Document at least 3 bugs you found. Add rows as needed.
 
 | Input | Expected Behavior | Actual Behavior | Console Output / Error |
 |-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
+| guess of 42| Too High hint | Too Low hint was shown| none|
+| Pressed New Game button| Guess sequence reset, I could make guesses now| Secret number changed only, previous game's guesses remained, submitting new ones did not have an effect| None|
+| guess was outside of allowed range| Error thrown, invalid guess| Guess was treated normally, hint was given | None |
 
 ---
 
