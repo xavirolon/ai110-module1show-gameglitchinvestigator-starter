@@ -28,18 +28,28 @@ Document at least 3 bugs you found. Add rows as needed.
 ## 2. How did you use AI as a teammate?
 
 - Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
-- Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
-- Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
+I used Claude for this project, and the add-on to have it on VSCode as well.
 
+- Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
+Cluade swapped the guess logic so a guess higher than the secret number would provide a hint to go lower, and guesses lower would hint the player to go higher. Before this was swapped, and AI fixed this error. I verified through a pytest from Cluade, which stated that is was correclty showing the right outputs, and then running the game once more and trying to make attempts, which verified the fix.
+
+- Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
+At first, I selected lines for fixing the bug where a new game does not reset the number of guesses given. I told Claude to move the selected lines into logic_utlis.py and refactor it so the guesses list resets. It made a new function for when we start a new game, and kept the game state previously intact while ensuring the guesses are empty when returned.
+I was mainly confused why a new function was made that returned these values, but looking at the code in app.py, Claude ensured that we have a variable that calls the function and its reset values.
 ---
 
 ## 3. Debugging and testing your fixes
 
 - How did you decide whether a bug was really fixed?
+The output was showing not only the expected result that I wanted, but it was correct with the game's logic, so the bug for making guesses was fixed.
+
+The bug was fixed when the problem that I encountered could not be replicated anymore. Making multiple guesses and attempting a New Game always reset the history of guesses from the previous one. No matter how many or little guesses were made, the list reset, so the bug was fixed.
 - Describe at least one test you ran (manual or using pytest)  
   and what it showed you about your code.
-- Did AI help you design or understand any tests? How?
+Pytest was used in which Claude added regression tests in test_game_logic.py to verify the bug of guesses showing the wrong hint. A too high guess was correct if the guess was above the secret number, and a two low one was correct as well.
 
+- Did AI help you design or understand any tests? How?
+AI designed these tests in the test_game_logic.py file when I asked it to generate a pytest specific to the bugs fixed. It showed me the lines of code that actually showcase the test, along with running a test on the specific function, and telling me the tests passed. 
 ---
 
 ## 4. What did you learn about Streamlit and state?
