@@ -55,6 +55,7 @@ AI designed these tests in the test_game_logic.py file when I asked it to genera
 ## 4. What did you learn about Streamlit and state?
 
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
+Streamlit reruns mean that every time you interact with the app, like typing a guess, prressing a button, or changing the difficulty, it re-runs the entire script from top to bottom. It re-reads its own code, like someone who forgets what they just did and needs to re-read the directions again.
 
 ---
 
@@ -62,5 +63,10 @@ AI designed these tests in the test_game_logic.py file when I asked it to genera
 
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
   - This could be a testing habit, a prompting strategy, or a way you used Git.
+Referencing certain files/selecting lines in a file and having AI explain lines and how they work or what the logic of the code is. This would serve as a baseline for examining the code I am given when starting out and need to narrow down a problem.
 - What is one thing you would do differently next time you work with AI on a coding task?
+I think asking AI to explain the bug as if it works as intended to see if the error is a real error that can be replicated or not.
+
+
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+AI generated code is handy to work with, but verifying that it works as intended is important. I was able to fix a bug only for AI to show that this fix resulted in a hidden error being shown. The hints being swapped and the logic fixed resulting in AI finding out that exisiting tests already fail due to logic errors in the code. So verifying the code is working as intended and re-running the code is very important to make sure the code is correct.
